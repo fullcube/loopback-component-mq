@@ -1,0 +1,17 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer"
+  },
+  "../../../lib": {
+    "events": {
+      "consumer": {
+        "model": "Event",
+        "method": "handleIncomingMessage"
+      },
+      "producer": {
+        "model": "Event",
+        "method": "sendOutgoingMessage"
+      }
+    }
+  }
+}

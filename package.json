@@ -1,0 +1,63 @@
+{
+  "name": "loopback-component-mq",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "",
+  "author": "",
+  "files": [
+    "lib"
+  ],
+  "main": "index.js",
+  "keywords": [
+    "loopback",
+    "component",
+    "loopback-component-mq"
+  ],
+  "scripts": {
+    "test": "nyc  --reporter=lcov --reporter=text --reporter=text-summary mocha test/*test.js",
+    "dev": "nodemon test/test-server/server/server.js --ignore db.json --ext js,json",
+    "lint": "eslint .",
+    "spretest": "npm run lint",
+    "test:watch": "npm run test -- -w",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "amqp-stats": "0.0.14",
+    "amqplib": "^0.4.2",
+    "bluebird": "^3.4.1",
+    "debug": "^2.2.0",
+    "jackrabbit": "git@github.com:beeman/jackrabbit.git#pass-amqplib-options",
+    "lodash": "^4.14.1",
+    "ssl-root-cas": "^1.2.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "coveralls": "^2.11.9",
+    "eslint": "^2.13.1",
+    "eslint-config-fullcube": "https://github.com/fullcube/eslint-config-fullcube/tarball/master",
+    "eslint-config-strict": "https://github.com/fullcube/eslint-config-strict/tarball/f235fa38289b17e305a65be38ff9cfdf4c1eb31c",
+    "eslint-plugin-filenames": "https://github.com/fullcube/eslint-plugin-filenames/tarball/0123c4bb0034d71cc7a04c25fd63b3ac798052a1",
+    "loopback": "^2.22.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^2.5.0",
+    "loopback-component-fixtures": "^1.0.0",
+    "loopback-datasource-juggler": "^2.39.0",
+    "mocha": "^2.5.3",
+    "nodemon": "^1.9.2",
+    "nyc": "^7.0.0",
+    "serve-favicon": "^2.0.1",
+    "sinon": "^1.17.4",
+    "sinon-as-promised": "^3.0.1",
+    "sinon-chai": "^2.8.0"
+  },
+  "eslintConfig": {
+    "extends": "fullcube",
+    "env": {
+      "mocha": true
+    }
+  },
+  "repository": "beeman/loopback-component-mq"
+}
