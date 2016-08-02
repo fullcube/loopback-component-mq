@@ -1,0 +1,7 @@
+{
+  "extends": "fullcube",
+  "root": true,
+  "rules": {
+    "filenames/match-regex": 0
+  }
+}
