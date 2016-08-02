@@ -153,3 +153,29 @@ describe('Main component config', function() {
   })
 
 })
+
+
+describe('Queue model', function() {
+
+  const Queue = app.models.Queue
+
+  it('should have created the Queue model', function() {
+    expect(Queue).to.be.a('function')
+    expect(Queue.status).to.be.a('function')
+    expect(Queue.queues).to.be.a('function')
+  })
+
+  it('should be able to get the server status', function() {
+    Queue.status()
+      .then(res => expect(res).to.be.an('object'))
+  })
+
+  it('should be able to get the server queues', function() {
+    Queue.queues()
+      .then(res => {
+        expect(res).to.be.an('array')
+        expect(res.length).to.equal(1)
+      })
+  })
+
+})
