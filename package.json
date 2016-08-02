@@ -18,7 +18,7 @@
     "rabbit-mq"
   ],
   "scripts": {
-    "test": "nyc  --reporter=lcov --reporter=text --reporter=text-summary mocha test/*test.js",
+    "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha test/*test.js",
     "dev": "nodemon test/test-server/server/server.js --ignore db.json --ext js,json",
     "lint": "eslint .",
     "spretest": "npm run lint",
