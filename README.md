@@ -1,4 +1,7 @@
 # loopback-component-mq
+Loopback Component for working with a Message Queue
+
+[![Circle CI](https://circleci.com/gh/fullcube/loopback-component-mq.svg?style=svg)](https://circleci.com/gh/fullcube/loopback-component-mq) [![Dependencies](http://img.shields.io/david/fullcube/loopback-component-mq.svg?style=flat)](https://david-dm.org/fullcube/loopback-component-mq) [![Coverage Status](https://coveralls.io/repos/github/fullcube/loopback-component-mq/badge.svg?branch=master)](https://coveralls.io/github/fullcube/loopback-component-mq?branch=master)
 
 ## Installation
 
