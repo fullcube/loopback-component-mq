@@ -1,17 +1,21 @@
 {
   "name": "loopback-component-mq",
   "version": "1.0.0",
-  "description": "",
-  "homepage": "",
-  "author": "",
+  "description": "Loopback Component for working with a Message Queue",
+  "homepage": "https://github.com/fullcube/loopback-component-mq",
+  "author": {
+    "name": "Bram Borggreve @beeman"
+  },
   "files": [
     "lib"
   ],
-  "main": "index.js",
+  "main": "./lib/index.js",
   "keywords": [
     "loopback",
     "component",
-    "loopback-component-mq"
+    "loopback-component-mq",
+    "rabbit",
+    "rabbit-mq"
   ],
   "scripts": {
     "test": "nyc  --reporter=lcov --reporter=text --reporter=text-summary mocha test/*test.js",
@@ -58,6 +62,5 @@
     "env": {
       "mocha": true
     }
-  },
-  "repository": "beeman/loopback-component-mq"
+  }
 }
