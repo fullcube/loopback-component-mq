@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-mq",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Loopback Component for working with a Message Queue",
   "homepage": "https://github.com/fullcube/loopback-component-mq",
   "author": {
