@@ -27,7 +27,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "amqp-stats": "0.0.14",
+    "amqp-stats": "https://github.com/fullcube/node-amqp-stats/tarball/fe86722fd278067969f03addde57ed53f0910cd8",
     "amqplib": "0.4.2",
     "bluebird": "3.4.1",
     "debug": "2.2.0",
