@@ -10,7 +10,7 @@ module.exports = function(Event) {
     if (Event.sendOutgoingMessage) {
       Event.sendOutgoingMessage(ctx.instance)
     } else {
-      throw new Error('Method Event.sendOutgoingMessage does not exist')
+      console.error('Method Event.sendOutgoingMessage does not exist')
     }
     next()
   })
