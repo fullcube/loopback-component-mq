@@ -1,6 +1,6 @@
 {
   "name": "loopback-component-mq",
-  "version": "1.2.3",
+  "version": "0.0.0-development",
   "description": "Loopback Component for working with a Message Queue",
   "homepage": "https://github.com/fullcube/loopback-component-mq",
   "author": {
@@ -23,7 +23,8 @@
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test:watch": "npm run test -- -w",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "license": "MIT",
   "dependencies": {
@@ -38,6 +39,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "compression": "^1.0.3",
+    "condition-circle": "^1.5.0",
     "cors": "^2.5.2",
     "coveralls": "^2.11.9",
     "eslint": "2.13.1",
@@ -50,6 +52,7 @@
     "mocha": "^3.1.2",
     "nodemon": "^1.11.0",
     "nyc": "^8.3.1",
+    "semantic-release": "^6.3.2",
     "serve-favicon": "^2.0.1",
     "sinon": "^1.17.4",
     "sinon-as-promised": "^4.0.2",
@@ -60,5 +63,12 @@
     "env": {
       "mocha": true
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fullcube/loopback-component-mq.git"
+  },
+  "release": {
+    "verifyConditions": "condition-circle"
   }
 }
