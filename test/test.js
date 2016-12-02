@@ -1,6 +1,5 @@
 'use strict'
 
-const Promise = require('bluebird')
 const path = require('path')
 const chai = require('chai')
 
