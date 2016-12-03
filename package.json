@@ -56,7 +56,9 @@
     "serve-favicon": "^2.0.1",
     "sinon": "^1.17.4",
     "sinon-as-promised": "^4.0.2",
-    "sinon-chai": "^2.8.0"
+    "sinon-chai": "^2.8.0",
+    "supertest": "^2.0.1",
+    "supertest-as-promised": "^4.0.2"
   },
   "eslintConfig": {
     "extends": "fullcube",

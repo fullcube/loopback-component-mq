@@ -1,0 +1,20 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "rabbit": {
+    "name": "rabbit",
+    "connector": "transient",
+    "options": {
+      "protocol": "amqp",
+      "username": "guest",
+      "password": "guest",
+      "hostname": "localhost",
+      "port": "5672",
+      "restPort": "15672",
+      "vhost": "/",
+      "sslKey": ""
+    }
+  }
+}

@@ -2,6 +2,7 @@
 
 const path = require('path')
 const chai = require('chai')
+const request = require('supertest-as-promised')
 
 const expect = chai.expect
 
@@ -11,7 +12,13 @@ const Event = app.models.Event
 const RabbitConfig = require('../lib/rabbit-config')
 const Component = require('../lib/index')
 
-describe('Component initialized', function() {
+function json(app, verb, reqUrl) {
+  return request(app)[verb](reqUrl)
+    .set('Content-Type', 'application/json')
+    .set('Accept', 'application/json')
+}
+
+describe('test-server: Component initialized', function() {
 
   it('should have configured the methods as defined in component-config', function() {
     expect(Event.handleIncomingMessage).to.be.a('function')
@@ -41,7 +48,7 @@ describe('Component initialized', function() {
 
 })
 
-describe('Rapid config with SSL key', function() {
+describe('test-server: Rapid config with SSL key', function() {
 
   it('should initialize the config', function() {
     const cfg = {
@@ -65,7 +72,7 @@ describe('Rapid config with SSL key', function() {
   })
 })
 
-describe('Main component config', function() {
+describe('test-server: Main component config', function() {
 
   it('should initialize with a default dataSource value', function() {
     const cfg = {}
@@ -154,7 +161,7 @@ describe('Main component config', function() {
 })
 
 
-describe('Queue model', function() {
+describe('test-server: Queue model', function() {
 
   const Queue = app.models.Queue
 
@@ -177,4 +184,26 @@ describe('Queue model', function() {
       })
   })
 
+})
+
+describe.skip('test-server: Access to Queue model', function() {
+  const endPoints = [
+    '/api/Queue/queues',
+    '/api/Queue/status',
+  ]
+  const verb = 'get'
+  const expectedStatus = 200
+
+  endPoints.forEach(endPoint => {
+    it(`should have a ${expectedStatus} response to endpoint ${endPoint}`, function (done) {
+      json(app, verb, endPoint)
+        .send()
+        .expect(expectedStatus)
+        .end((err, res) => {
+          console.log('res', res)
+          expect(res.statusCode).to.equal(expectedStatus)
+          done()
+        })
+    })
+  })
 })

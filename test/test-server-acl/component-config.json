@@ -1,0 +1,28 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer"
+  },
+  "../../lib": {
+    "options": {
+      "dataSource": "rabbit",
+      "acls": [{
+        "accessType": "*",
+        "principalType": "ROLE",
+        "principalId": "$unauthenticated",
+        "permission": "DENY"
+      }]
+    },
+    "topology": {
+      "events": {
+        "consumer": {
+          "model": "Queue",
+          "method": "handleIncomingMessage"
+        },
+        "producer": {
+          "model": "Queue",
+          "method": "sendOutgoingMessage"
+        }
+      }
+    }
+  }
+}
