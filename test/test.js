@@ -183,12 +183,12 @@ describe('test-server', function() {
     })
 
     it('should be able to get the server status', function() {
-      app.models.Queue.status()
+      return app.models.Queue.status()
         .then(res => expect(res).to.be.an('object'))
     })
 
     it('should be able to get the server queues', function() {
-      app.models.Queue.queues()
+      return app.models.Queue.queues()
         .then(res => {
           expect(res).to.be.an('array')
           expect(res.length).to.equal(1)
