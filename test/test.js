@@ -6,9 +6,10 @@ const request = require('supertest-as-promised')
 
 const expect = chai.expect
 
-const TEST_APP = path.join(__dirname, 'test-server/server/server.js')
+const TEST_APP = path.join(__dirname, 'test-server/server.js')
 
 const RabbitConfig = require('../lib/rabbit-config')
+const RabbitTopology = require('../lib/rabbit-topology')
 const Component = require('../lib/index')
 
 // Because require'ing config creates and caches a global singleton,
@@ -27,8 +28,9 @@ function json(app, verb, reqUrl) {
 describe('test-server', function() {
   let app = null
 
-  beforeEach(function() {
+  beforeEach(function(done) {
     app = requireUncached(TEST_APP)
+    app.once('booted', done)
   })
 
   describe('Component initialized', function() {
@@ -85,6 +87,42 @@ describe('test-server', function() {
     })
   })
 
+  describe('RabbitTopology', function() {
+    describe('setupQueueProducer', function() {
+      it('should throw an error with a non-existing consumer Model value', function() {
+        const rabbitTopology = new RabbitTopology()
+
+        expect(function() {
+          rabbitTopology.setupQueueProducer(app, 'my-queue-name', {
+            model: 'Unknown',
+          })
+        }).to.throw(Error, 'setupQueueProducer: Model not found: Unknown');
+      })
+    })
+    describe('setupQueueConsumer', function() {
+      it('should throw an error with a non-existing consumer Model value', function() {
+        const rabbitTopology = new RabbitTopology()
+
+        expect(function() {
+          rabbitTopology.setupQueueConsumer(app, 'my-queue-name', {
+            model: 'Unknown',
+            method: 'nonExisting',
+          })
+        }).to.throw(Error, 'setupQueueConsumer: Model not found: Unknown');
+      })
+      it('should throw an error with a non-existing consumer Method value', function() {
+        const rabbitTopology = new RabbitTopology()
+
+        expect(function() {
+          rabbitTopology.setupQueueConsumer(app, 'my-queue-name', {
+            model: 'Event',
+            method: 'nonExisting',
+          })
+        }).to.throw(Error, 'setupQueueConsumer: Method not found: Event.nonExisting');
+      })
+    })
+  })
+
   describe('Main component config', function() {
 
     it('should initialize with a default dataSource value', function() {
@@ -102,75 +140,6 @@ describe('test-server', function() {
       const component = new Component(app, cfg)
       expect(component).to.be.an('object')
     })
-
-    it('should throw an error with a non-existing producer Model value', function() {
-      const cfg = {
-        options: {
-          dataSource: 'rabbit'
-        },
-        topology: {
-          'my-queue-name': {
-            producer: {
-              model: 'Unknown'
-            }
-          }
-        }
-      }
-      try {
-        const component = new Component(app, cfg)
-      }
-      catch (err) {
-        expect(err).to.be.an('error')
-        expect(err.message).to.equal('setupQueueProducer: Model not found: Unknown')
-      }
-    })
-
-    it('should throw an error with a non-existing consumer Model value', function() {
-      const cfg = {
-        options: {
-          dataSource: 'rabbit'
-        },
-        topology: {
-          'my-queue-name': {
-            consumer: {
-              model: 'Unknown',
-            }
-          }
-        }
-      }
-      try {
-        const component = new Component(app, cfg)
-      }
-      catch (err) {
-        expect(err).to.be.an('error')
-        expect(err.message).to.equal('setupQueueConsumer: Model not found: Unknown')
-      }
-    })
-
-
-    it('should throw an error with a non-existing consumer Method value', function() {
-      const cfg = {
-        options: {
-          dataSource: 'rabbit'
-        },
-        topology: {
-          'my-queue-name': {
-            consumer: {
-              model: 'Event',
-              method: 'nonExisting',
-            }
-          }
-        }
-      }
-      try {
-        const component = new Component(app, cfg)
-      }
-      catch (err) {
-        expect(err).to.be.an('error')
-        expect(err.message).to.equal('setupQueueConsumer: Method not found: Event.nonExisting')
-      }
-    })
-
   })
 
 
@@ -195,6 +164,22 @@ describe('test-server', function() {
         })
     })
 
+  })
+
+  describe('Queue model (rabbit unconfigured)', function() {
+    beforeEach(function() {
+      app.models.Queue.rabbit = null
+    })
+    it('should raise an error when trying to get server status', function() {
+      return app.models.Queue.status()
+        .then(res => Promise.reject(new Error('Should have raised an error')))
+        .catch(res => expect(res).to.be.an('Error'))
+    })
+    it('should raise an error when trying to get server queues', function() {
+      return app.models.Queue.queues()
+        .then(res => Promise.reject(new Error('Should have raised an error')))
+        .catch(res => expect(res).to.be.an('Error'))
+    })
   })
 
   describe('Access to Queue model', function() {

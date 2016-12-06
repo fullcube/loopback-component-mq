@@ -24,8 +24,9 @@ function json(app, verb, reqUrl) {
 describe('test-server-acl', function() {
   let app = null
 
-  beforeEach(function() {
+  beforeEach(function(done) {
     app = requireUncached(TEST_APP)
+    app.once('booted', done)
   })
 
   describe('Component initialized', function() {

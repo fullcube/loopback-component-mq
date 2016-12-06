@@ -15,11 +15,11 @@
     "topology": {
       "events": {
         "consumer": {
-          "model": "Queue",
+          "model": "Event",
           "method": "handleIncomingMessage"
         },
         "producer": {
-          "model": "Queue",
+          "model": "Event",
           "method": "sendOutgoingMessage"
         }
       }
