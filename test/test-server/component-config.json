@@ -2,7 +2,7 @@
   "loopback-component-explorer": {
     "mountPath": "/explorer"
   },
-  "../../../lib": {
+  "../../lib": {
     "options": {
       "dataSource": "rabbit"
     },

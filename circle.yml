@@ -1,9 +1,28 @@
 machine:
   node:
     version: 6.1.0
+  services:
+    - docker
+  pre:
+    # Stop rabbitmq that comes with circle by default.
+    - sudo service rabbitmq-server stop
+
+dependencies:
+  pre:
+    # Get wait-for-it.sh.
+    - git clone https://github.com/vishnubob/wait-for-it.git
+
+database:
+  override:
+    # Start rabbitmq with support for management utils.
+    - docker run -d -p 5672:5672 -p 15672:15672 rabbitmq:3-management
+
 test:
+  override:
+    - ./wait-for-it/wait-for-it.sh localhost:5672 -- npm test
   post:
     - npm run coverage
+
 deployment:
   master:
     branch: [master]

@@ -5,7 +5,7 @@ module.exports = function(app) {
   }
 
   let count = 0
-  let interval = 1000
+  let interval = 5000
 
   setInterval(() => {
     count++
