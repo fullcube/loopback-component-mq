@@ -19,7 +19,7 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha test/*test.js",
-    "dev": "nodemon test/test-server/server/server.js --ignore db.json --ext js,json",
+    "dev": "nodemon test/test-server/server.js --ignore db.json --ext js,json",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test:watch": "npm run test -- -w",
