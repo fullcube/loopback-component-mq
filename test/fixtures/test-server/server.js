@@ -1,9 +1,9 @@
+'use strict';
+
 var loopback = require('loopback');
 var boot = require('loopback-boot');
 
 var app = module.exports = loopback();
-
-app.enableAuth();
 
 app.start = function() {
   // start the web server

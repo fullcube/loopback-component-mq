@@ -1,0 +1,6 @@
+{
+  "name": "RabbitMQ",
+  "plural": "RabbitMQ",
+  "base": "Model",
+  "description": "Provide access to RabbitMQ server stats and queues."
+}

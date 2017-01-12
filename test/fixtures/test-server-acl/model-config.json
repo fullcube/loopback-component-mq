@@ -10,6 +10,7 @@
       "loopback/common/mixins",
       "loopback/server/mixins",
       "../common/mixins",
+      "../../../lib/mixins",
       "./mixins"
     ]
   },
@@ -32,7 +33,11 @@
     "dataSource": "db",
     "public": false
   },
-  "Event": {
+  "Client": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Item": {
     "dataSource": "db",
     "public": true
   }
