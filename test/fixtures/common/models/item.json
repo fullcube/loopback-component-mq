@@ -1,0 +1,62 @@
+{
+  "name": "Item",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true,
+      "defaultFn": "uuidv4"
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "data": {
+      "type": "object"
+    },
+    "created": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    },
+    "modified": {
+      "type": "date",
+      "required": true,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {},
+  "mixins": {
+    "MessageQueue": {
+      "producers": {
+        "publishItem": {
+          "exchange": "loopback-component-mq:item.write",
+          "options": {
+            "expiresAfter": 1000
+          }
+        },
+        "publishNewItem": {
+          "exchange": "loopback-component-mq:item.write",
+          "options": {
+            "type": "item.write.created",
+            "expiresAfter": 1000
+          }
+        },
+        "publishUpdatedItem": {
+          "exchange": "loopback-component-mq:item.write",
+          "options": {
+            "type": "item.write.updated",
+            "expiresAfter": 1000
+          }
+        }
+      }
+    }
+  }
+}
