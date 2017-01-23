@@ -33,7 +33,7 @@
     "bluebird": "3.4.7",
     "debug": "2.6.0",
     "lodash": "4.17.4",
-    "rabbot": "https://github.com/fullcube/rabbot/tarball/744981ed27b50ea3892d442d2225ba35d808c6ce"
+    "rabbot": "https://github.com/fullcube/rabbot/tarball/e6173272b854d85adaf0089d04d1ee3138ceadae"
   },
   "devDependencies": {
     "chai": "3.5.0",
