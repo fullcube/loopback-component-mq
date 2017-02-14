@@ -7,7 +7,7 @@ const rabbit = require('rabbot')
 const requireUncached = require('./common').requireUncached
 
 const TEST_APP = path.join(__dirname, 'fixtures/test-server/server.js')
-const DELAY = 50
+const DELAY = 200
 
 describe('Mixin', function() {
   let app = null
