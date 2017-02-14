@@ -1,5 +1,5 @@
 {
-  "name": "Event",
+  "name": "Client",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -32,5 +32,23 @@
   "validations": [],
   "relations": {},
   "acls": [],
-  "methods": {}
+  "methods": {},
+  "mixins": {
+    "MessageQueue": {
+      "consumers": {
+        "consumeAllItems": {
+          "queue": "loopback-component-mq:client.item.write",
+          "type": "#"
+        },
+        "consumeNewItems": {
+          "queue": "loopback-component-mq:client.item.write.created",
+          "type": "#"
+        },
+        "consumeUpdatedItems": {
+          "queue": "loopback-component-mq:client.item.write.updated",
+          "type": "#"
+        }
+      }
+    }
+  }
 }

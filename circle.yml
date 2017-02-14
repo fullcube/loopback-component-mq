@@ -6,6 +6,8 @@ machine:
   pre:
     # Stop rabbitmq that comes with circle by default.
     - sudo service rabbitmq-server stop
+  environment:
+    DEBUG: loopback:component:mq,rabbot*
 
 dependencies:
   pre:

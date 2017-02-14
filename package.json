@@ -19,9 +19,9 @@
   ],
   "scripts": {
     "test": "NODE_ENV=test nyc --reporter=lcov --reporter=text --reporter=text-summary mocha test/*test.js",
-    "dev": "nodemon test/test-server/server.js --ignore db.json --ext js,json",
+    "dev": "nodemon test/fixtures/test-server/server.js --ignore db.json --ext js,json",
     "lint": "eslint .",
-    "pretest": "npm run lint",
+    "pretestDDD": "npm run lint",
     "test:watch": "npm run test -- -w",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -30,41 +30,38 @@
   "dependencies": {
     "amqp-stats": "https://github.com/fullcube/node-amqp-stats/tarball/fe86722fd278067969f03addde57ed53f0910cd8",
     "amqplib": "0.5.1",
-    "bluebird": "3.4.6",
-    "debug": "2.3.3",
-    "jackrabbit": "https://github.com/beeman/jackrabbit/tarball/da8edbe0eeab4d448ec2b97f0ca48cc1028ff4f3",
-    "lodash": "4.17.2",
-    "ssl-root-cas": "1.2.3"
+    "bluebird": "3.4.7",
+    "debug": "2.6.1",
+    "lodash": "4.17.4",
+    "rabbot": "https://github.com/fullcube/rabbot/tarball/e6173272b854d85adaf0089d04d1ee3138ceadae"
   },
   "devDependencies": {
     "chai": "3.5.0",
     "compression": "1.6.2",
     "condition-circle": "1.5.0",
-    "cors": "2.8.1",
+    "config": "1.24.0",
     "coveralls": "2.11.15",
-    "eslint": "3.11.1",
-    "eslint-config-fullcube": "1.0.46",
+    "dirty-chai": "1.2.2",
+    "eslint": "2.13.1",
+    "eslint-config-fullcube": "latest",
+    "eslint-config-loopback": "7.0.1",
+    "eslint-plugin-mocha": "4.7.0",
     "loopback": "2.36.0",
     "loopback-boot": "2.23.0",
     "loopback-component-explorer": "2.7.0",
     "loopback-component-fixtures": "1.0.2",
     "loopback-datasource-juggler": "2.53.0",
     "mocha": "3.2.0",
+    "mocha-sinon": "1.1.6",
     "nodemon": "1.11.0",
     "nyc": "10.0.0",
     "semantic-release": "6.3.2",
     "serve-favicon": "2.3.2",
-    "sinon": "1.17.6",
+    "sinon": "1.17.7",
     "sinon-as-promised": "4.0.2",
     "sinon-chai": "2.8.0",
     "supertest": "2.0.1",
     "supertest-as-promised": "4.0.2"
-  },
-  "eslintConfig": {
-    "extends": "fullcube",
-    "env": {
-      "mocha": true
-    }
   },
   "repository": {
     "type": "git",

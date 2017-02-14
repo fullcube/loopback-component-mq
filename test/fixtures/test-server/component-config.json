@@ -1,0 +1,46 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer"
+  },
+  "../../../lib": {
+    "options": {
+      "restPort": 15672
+    },
+    "topology": {
+      "connection": {
+        "uri": "amqp://guest:guest@127.0.0.1:5672/"
+      },
+
+      "exchanges": [{
+        "name": "loopback-component-mq:item.write",
+        "type": "topic",
+        "persistent": true
+      }],
+
+      "queues": [{
+        "name": "loopback-component-mq:client.item.write",
+        "subscribe": true
+      }, {
+        "name": "loopback-component-mq:client.item.write.created",
+        "subscribe": true
+      }, {
+        "name": "loopback-component-mq:client.item.write.updated",
+        "subscribe": true
+      }],
+
+      "bindings": [{
+        "exchange": "loopback-component-mq:item.write",
+        "target": "loopback-component-mq:client.item.write",
+        "keys": ["#"]
+      }, {
+        "exchange": "loopback-component-mq:item.write",
+        "target": "loopback-component-mq:client.item.write.created",
+        "keys": ["item.write.created"]
+      }, {
+        "exchange": "loopback-component-mq:item.write",
+        "target": "loopback-component-mq:client.item.write.updated",
+        "keys": ["item.write.updated"]
+      }]
+    }
+  }
+}
