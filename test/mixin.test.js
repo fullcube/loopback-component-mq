@@ -58,8 +58,10 @@ describe('Mixin', function() {
       expect(app.models.Client.consumeNewItems.calledOnce).to.be.true()
     })
     it('should pass the message body to the consumer', function() {
-      expect(app.models.Client.consumeAllItems.calledWith('a message')).to.be.true()
-      expect(app.models.Client.consumeNewItems.calledWith('a message')).to.be.true()
+      expect(
+        app.models.Client.consumeAllItems.calledWithMatch('a message', { type: 'item.write.created' })).to.be.true()
+      expect(
+        app.models.Client.consumeNewItems.calledWithMatch('a message', { type: 'item.write.created' })).to.be.true()
     })
   })
 })
