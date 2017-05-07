@@ -6,7 +6,6 @@ global.sinonChai = require('sinon-chai')
 
 global.expect = global.chai.expect
 
-require('sinon-as-promised')
 require('mocha-sinon')()
 
 global.chai.use(require('dirty-chai'))
