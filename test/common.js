@@ -11,7 +11,7 @@ require('mocha-sinon')()
 global.chai.use(require('dirty-chai'))
 global.chai.use(require('sinon-chai'))
 
-const request = require('supertest-as-promised')
+const request = require('supertest')
 
 // Because require'ing config creates and caches a global singleton,
 // We have to invalidate the cache to build new object based on the environment variables above

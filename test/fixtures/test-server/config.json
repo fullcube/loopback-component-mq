@@ -16,9 +16,6 @@
     "urlencoded": {
       "extended": true,
       "limit": "100kb"
-    },
-    "errorHandler": {
-      "disableStackTrace": false
     }
   },
   "legacyExplorer": false
