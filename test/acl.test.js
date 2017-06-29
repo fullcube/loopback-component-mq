@@ -3,8 +3,8 @@
 require('./common')
 
 const path = require('path')
-const requireUncached = require('./common').requireUncached
-const json = require('./common').json
+const { requireUncached } = require('./common')
+const { json } = require('./common')
 
 const TEST_APP = path.join(__dirname, 'fixtures/test-server-acl/server.js')
 

@@ -3,7 +3,7 @@
 require('./common')
 
 const path = require('path')
-const requireUncached = require('./common').requireUncached
+const { requireUncached } = require('./common')
 
 const TEST_APP = path.join(__dirname, 'fixtures/test-server/server.js')
 

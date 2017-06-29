@@ -1,4 +1,7 @@
 {
   "extends": "fullcube",
-  "root": true
+  "root": true,
+  "rules": {
+    "id-match": 0
+  }
 }
