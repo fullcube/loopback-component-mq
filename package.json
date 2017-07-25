@@ -33,7 +33,7 @@
     "bluebird": "3.5.0",
     "debug": "2.6.8",
     "lodash": "4.17.4",
-    "rabbot": "1.1.0"
+    "rabbot": "https://github.com/fullcube/rabbot/tarball/bbd6343777f8f341d592711e8e2bf23fe2ad76f5"
   },
   "devDependencies": {
     "@bubltechnology/customizable-commit-analyzer": "1.0.2-0",
