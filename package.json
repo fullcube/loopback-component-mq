@@ -54,7 +54,7 @@
     "mocha-sinon": "2.0.0",
     "nodemon": "1.11.0",
     "nyc": "11.1.0",
-    "semantic-release": "6.3.6",
+    "semantic-release": "7.0.1",
     "serve-favicon": "2.4.3",
     "sinon": "2.3.7",
     "sinon-chai": "2.12.0",
