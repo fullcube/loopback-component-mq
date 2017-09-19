@@ -43,7 +43,7 @@
     "config": "1.26.2",
     "coveralls": "2.13.1",
     "dirty-chai": "2.0.1",
-    "eslint": "4.4.1",
+    "eslint": "4.7.1",
     "eslint-config-fullcube": "latest",
     "husky": "0.14.2",
     "loopback": "3.8.0",
