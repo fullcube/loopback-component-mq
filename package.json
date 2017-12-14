@@ -39,7 +39,7 @@
     "@bubltechnology/customizable-commit-analyzer": "1.0.2-0",
     "chai": "4.1.1",
     "compression": "1.7.0",
-    "condition-circle": "1.5.0",
+    "condition-circle": "2.0.1",
     "config": "1.26.2",
     "coveralls": "2.13.1",
     "dirty-chai": "2.0.1",
