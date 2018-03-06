@@ -57,7 +57,7 @@
     "semantic-release": "7.0.1",
     "serve-favicon": "2.4.3",
     "sinon": "3.2.1",
-    "sinon-chai": "2.13.0",
+    "sinon-chai": "3.0.0",
     "strong-error-handler": "2.2.0",
     "supertest": "3.0.0",
     "validate-commit-msg": "2.14.0"
