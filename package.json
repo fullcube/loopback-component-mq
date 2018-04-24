@@ -32,7 +32,7 @@
     "amqp-stats": "https://github.com/fullcube/node-amqp-stats/tarball/fe86722fd278067969f03addde57ed53f0910cd8",
     "bluebird": "3.5.0",
     "debug": "3.0.0",
-    "lodash": "4.17.4",
+    "lodash": "4.17.9",
     "rabbot": "https://github.com/fullcube/rabbot/tarball/bbd6343777f8f341d592711e8e2bf23fe2ad76f5"
   },
   "devDependencies": {
