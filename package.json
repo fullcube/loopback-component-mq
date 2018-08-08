@@ -46,7 +46,7 @@
     "eslint": "4.4.1",
     "eslint-config-fullcube": "latest",
     "husky": "0.14.2",
-    "loopback": "3.8.0",
+    "loopback": "3.22.0",
     "loopback-boot": "2.26.1",
     "loopback-component-explorer": "4.2.0",
     "loopback-component-fixtures": "1.1.0",
