@@ -9,6 +9,7 @@ const { json } = require('./common')
 const TEST_APP = path.join(__dirname, 'fixtures/test-server-acl/server.js')
 
 describe('ACL', function() {
+  this.timeout(10000)
   let app = null
 
   before(function(done) {

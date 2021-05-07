@@ -6,7 +6,6 @@ const path = require('path')
 const { requireUncached } = require('./common')
 
 const TEST_APP = path.join(__dirname, 'fixtures/test-server/server.js')
-const DELAY = 200
 
 describe('Mixin', function() {
   let app = null
@@ -33,7 +32,6 @@ describe('Mixin', function() {
       this.sinon.spy(app.models.Client, 'consumeAllItems')
       this.sinon.spy(app.models.Client, 'consumeNewItems')
       return app.models.Item.publishItem('a message')
-        .delay(DELAY)
     })
 
     it('should call the relevant consumers when a mesage is received', function() {
@@ -50,7 +48,6 @@ describe('Mixin', function() {
       this.sinon.spy(app.models.Client, 'consumeAllItems')
       this.sinon.spy(app.models.Client, 'consumeNewItems')
       return app.models.Item.publishItem('a message', 'item.write.created')
-        .delay(DELAY)
     })
     it('should call the relevant consumers when a mesage is received', function() {
       expect(app.models.Client.consumeAllItems.calledOnce).to.be.true()
