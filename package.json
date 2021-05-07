@@ -24,7 +24,7 @@
     "pretest": "npm run lint",
     "test:watch": "npm run test -- -w",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "semantic-release": "semantic-release",
     "commitmsg": "validate-commit-msg"
   },
   "license": "MIT",
